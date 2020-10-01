@@ -1,5 +1,15 @@
 # ParFlow Solver Configuration Testing
 
+## INDEX
+ * [Overview](#overview)
+ * [Included Files](#included-files)
+ * [Quickstart](#quickstart)
+ * [Getting Started With Docker On Mac](#getting-started-with-docker-on-mac)
+ * [Running](#running)
+ * [To Add A New Domain](#to-add-a-new-domain)
+ * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
+ * [To Delete Test Logs](#to-delete-test-logs)
+
 ## OVERVIEW
 
  The performance test framework allows a user to run various domains against several solver configurations 
@@ -33,13 +43,19 @@ $ tclsh exec_test_suite.tcl LW 1 1 1 12 0
 
 ## GETTING STARTED WITH DOCKER ON MAC
 Install parflow_docker:
+```
 git clone https://github.com/parflow/docker parflow_docker
+```
 
 If on Mac - Install Docker:
+```
 https://docs.docker.com/docker-for-mac/install/
+```
 
 Clone the hydroframe/ParfloePerformanceTesting directory:
+```
 git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
+```
 
 cd into benchmarks folder
 
@@ -65,7 +81,7 @@ Currently to upload results we must download connection_strings.zip, paste “up
 docker run -it --rm -v $(pwd):/data -e MONGO_CONNECTION='/data/pathtotxtfileunderbenchmarks/upload_mongostring.txt' <docker container name> exec_test_suite.tcl LW 1 1 1 12 1
 ```
 
-Where ```data``` is ```/benchmarks```; ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt``` and ```<docker container name>``` is the same as you ```<[meaningful_tag_name][:version-x.x.x]>```
+Where ```data``` is ```/benchmarks```; ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt``` and ```<docker container name>``` is the same as your previously created ```<[meaningful_tag_name][:version-x.x.x]>```
 
 
 ## RUNNING
