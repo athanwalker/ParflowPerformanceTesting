@@ -57,9 +57,9 @@ Clone the hydroframe/ParfloePerformanceTesting directory:
 git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
 ```
 
-cd into benchmarks folder
+```cd``` into ```ParflowPerformanceTesting/benchmarks```
 
-Build the docker image using the version of parflow you want (for latest you can just say ‘:latest-x.x.x’ instead of ‘:version-x.x.x’):
+Build the docker image using the version of parflow you want (for latest you can just say ```:latest-x.x.x``` instead of ```:version-x.x.x```):
 ```
 docker build --tag <[meaningful_tag_name][:version-x.x.x]> .
 ```
@@ -69,19 +69,22 @@ Here is an example of a meaningful tag name:
 parflow37:version-3.6.0
 ```
 
-To see if the installation was successful, run the test suite for LW on 1 core, for 12 time steps and upload the results:
+To see if the installation was successful, run the test suite for LW on 1 core, for 12 time steps:
 ```
-docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 1
+docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 0
 ```
 
-For information on argument and option meaning, read [Running](#running)
+For information on argument and option meanings from ```docker run...``` read [Running](#running)
 
-Currently to upload results we must download connection_strings.zip, paste “upload_mongostring.txt into the benchmarks folder, run:
+Currently to upload results download ```connection_strings.zip```[NOTE: ADDRESS WHERE TO GET THIS OR IF THERE WILL BE A FIX TO THE UPLOAD] and paste ```upload_mongostring.txt``` anywhere under the benchmarks folder. Lastly, run:
 ```
 docker run -it --rm -v $(pwd):/data -e MONGO_CONNECTION='/data/pathtotxtfileunderbenchmarks/upload_mongostring.txt' <docker container name> exec_test_suite.tcl LW 1 1 1 12 1
 ```
 
-Where ```data``` is ```/benchmarks```; ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt``` and ```<docker container name>``` is the same as your previously created ```<[meaningful_tag_name][:version-x.x.x]>```
+Where:
+ * ```data``` is ```/benchmarks```
+ * ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt```
+ * ```<docker container name>``` is the same as your previously created ```<[meaningful_tag_name][:version-x.x.x]>```
 
 
 ## RUNNING
