@@ -4,9 +4,9 @@
  * [Overview](#overview)
  * [Included Files](#included-files)
  * [Quickstart](#quickstart)
- * [Getting Started With Docker On Mac](#getting-started-with-docker-on-mac)
+ * [Getting Started with Docker on Mac](#getting-started-with-docker-on-mac)
  * [Running](#running)
- * [To Add A New Domain](#to-add-a-new-domain)
+ * [To Add a New Domain](#to-add-a-new-domain)
  * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
  * [To Delete Test Logs](#to-delete-test-logs)
 
