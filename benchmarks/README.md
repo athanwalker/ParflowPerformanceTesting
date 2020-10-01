@@ -30,6 +30,44 @@ From this directory, run:
 $ tclsh exec_test_suite.tcl LW 1 1 1 12 0
 ```
 
+
+## GETTING STARTED WITH DOCKER ON MAC
+Install parflow_docker:
+git clone https://github.com/parflow/docker parflow_docker
+
+If on Mac - Install Docker:
+https://docs.docker.com/docker-for-mac/install/
+
+Clone the hydroframe/ParfloePerformanceTesting directory:
+git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
+
+cd into benchmarks folder
+
+Build the docker image using the version of parflow you want (for latest you can just say ‘:latest-x.x.x’ instead of ‘:version-x.x.x’):
+```
+docker build --tag <[meaningful_tag_name][:version-x.x.x]> .
+```
+
+Here is an example of a meaningful tag name: 
+```
+parflow37:version-3.6.0
+```
+
+To see if the installation was successful, run the test suite for LW on 1 core, for 12 time steps and upload the results:
+```
+docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 1
+```
+
+For information on argument and option meaning, read [Running](#running)
+
+Currently to upload results we must download connection_strings.zip, paste “upload_mongostring.txt into the benchmarks folder, run:
+```
+docker run -it --rm -v $(pwd):/data -e MONGO_CONNECTION='/data/pathtotxtfileunderbenchmarks/upload_mongostring.txt' <docker container name> exec_test_suite.tcl LW 1 1 1 12 1
+```
+
+Where ```data``` is ```/benchmarks```; ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt``` and ```<docker container name>``` is the same as you ```<[meaningful_tag_name][:version-x.x.x]>```
+
+
 ## RUNNING
 
  You must have Parflow installed and an environment variable named $PARFLOW_DIR which points to the directory where the 
