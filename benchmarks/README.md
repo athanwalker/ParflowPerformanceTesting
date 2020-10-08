@@ -140,33 +140,33 @@
 
 ## INCLUDED FILES
 
-                           |---collect_stats.tcl
-                           |---delete_logs.tcl
-                           |---pfbdiff.py
-              |---assets---|---pftest.tcl
-              |            |---post_run_uploader.py
-              |            |---purge_log_files.tcl
-              |            |---run_test.tcl
-              |            |---run_tests.tcl
-              |
-              |                                    |---DomainName.tcl
-              |---Domain SubFolders---|---assets---|---test_config.tcl
-              |                       |            |---tests.tcl
-              |                       |            |---validate_results.tcl
-              |                       |
-              |                       |---resuts.csv
-              |
- benchmarks---|---solver_configs---caseXX---solver_params.tcl 
-              |
-              |---.gitignore
-              |
-              |---Dockerfile
-              |
-              |---README.md
-              |
-              |---exec_test_suite.tcl
-              |
-              |---solver_configs---caseXX---solver_params.tcl
+                                  |---collect_stats.tcl
+                                  |---delete_logs.tcl
+                                  |---pfbdiff.py
+                     |---assets---|---pftest.tcl
+                     |            |---post_run_uploader.py
+                     |            |---purge_log_files.tcl
+                     |            |---run_test.tcl
+                     |            |---run_tests.tcl
+                     |
+                     |                                    |---DomainName.tcl
+                     |---Domain SubFolders---|---assets---|---test_config.tcl
+                     |                       |            |---tests.tcl
+                     |                       |            |---validate_results.tcl
+                     |                       |
+                     |                       |---resuts.csv
+                     |
+        benchmarks---|---solver_configs---caseXX---solver_params.tcl 
+                     |
+                     |---.gitignore
+                     |
+                     |---Dockerfile
+                     |
+                     |---README.md
+                     |
+                     |---exec_test_suite.tcl
+                     |
+                     |---solver_configs---caseXX---solver_params.tcl
 
  * solver_configs/caseXX/solver_params.tcl - Solver configuration to apply for this test
  * collect_stats.tcl - script to collect stats from all the test cases in a domain
