@@ -2,13 +2,13 @@
 
 ## INDEX
  * [Overview](#overview)
- * [Included Files](#included-files)
  * [Quickstart](#quickstart)
- * [Getting Started with Docker on Mac](#getting-started-with-docker-on-mac)
- * [Running](#running)
  * [To Add a New Domain](#to-add-a-new-domain)
  * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
  * [To Delete Test Logs](#to-delete-test-logs)
+ * [Included Files](#included-files)
+ * [Getting Started with Docker on Mac](#getting-started-with-docker-on-mac)
+
 
 ## OVERVIEW
 
@@ -16,94 +16,27 @@
  in single or batch runs. Statistics will be gathered at the end of each domain simulation.
 
 
-## INCLUDED FILES
-
- * solver_configs/caseXX/solver_params.tcl - Solver configuration to apply for this test
- * collect_stats.tcl - script to collect stats from all the test cases in a domain
- * purge_log_files.tcl - script to purge all the log files generated from a run
- * exec_test_suite.tcl - wrapper script to run all tests in a domain from root of test directory
- * run_test.tcl - script to run a single solver configuration for a test domain
- * run_tests.tcl - wrapper script to run all tests for a domain from within domain directory 
- * README.md - this file
- * pfbdiff.py - python script to compare output files for differences
- * Domain SubFolders - Each problem domain is given its own folder
- * Domain SubFolders/tests.tcl - Defines the set of solver configurations to use for this test domain
- * Domain SubFolders/DomainName.tcl - adapted TCL script to use when testing
- * Domain SubFolders/results.csv - the collected results from the
- * Domain SubFolders/test_config.tcl - Domain specific information, where to find the test directory, runname, etc.
- * Domain SubFolders/validate_results.tcl - Script to run any post test validations of output data
- 
-
 ## QUICKSTART
-From this directory, run:
-```
-$ tclsh exec_test_suite.tcl LW 1 1 1 12 0
-```
 
+ You must have Parflow installed and an environment variable named $PARFLOW_DIR which points to the directory where the
+ bin folder is located (standard Parflow requirements).
 
-## GETTING STARTED WITH DOCKER ON MAC
-Install parflow_docker:
-```
-git clone https://github.com/parflow/docker parflow_docker
-```
-
-If on Mac - Install Docker:
-```
-https://docs.docker.com/docker-for-mac/install/
-```
-
-Clone the hydroframe/ParfloePerformanceTesting directory:
-```
-git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
-```
-
-```cd``` into ```ParflowPerformanceTesting/benchmarks```
-
-Build the docker image using the version of parflow you want (for latest you can just say ```:latest-x.x.x``` instead of ```:version-x.x.x```):
-```
-docker build --tag <[meaningful_tag_name][:version-x.x.x]> .
-```
-
-Here is an example of a meaningful tag name: 
-```
-parflow37:version-3.6.0
-```
-
-To see if the installation was successful, run the test suite for LW on 1 core, for 12 time steps:
-```
-docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 0
-```
-
-For information on argument and option meanings from ```docker run...``` read [Running](#running)
-
-Currently to upload results download ```connection_strings.zip```[NOTE: ADDRESS WHERE TO GET THIS OR IF THERE WILL BE A FIX TO THE UPLOAD] and paste ```upload_mongostring.txt``` anywhere under the benchmarks folder. Lastly, run:
-```
-docker run -it --rm -v $(pwd):/data -e MONGO_CONNECTION='/data/pathtotxtfileunderbenchmarks/upload_mongostring.txt' <docker container name> exec_test_suite.tcl LW 1 1 1 12 1
-```
-
-Where:
- * ```data``` is ```/benchmarks```
- * ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt```
- * ```<docker container name>``` is the same as your previously created ```<[meaningful_tag_name][:version-x.x.x]>```
-
-
-## RUNNING
-
- You must have Parflow installed and an environment variable named $PARFLOW_DIR which points to the directory where the 
- bin folder is located (standard Parflow requirements). 
- 
  Python 3.4+ for post test validation
 
  /usr/bin/time available
 
- To run all the test cases for a Domain, from this folder run 
+ To run all the test cases for a Domain, from this folder run
  ```bash
  $ tclsh exec_test_suite.tcl domainName P Q R T U
  ```
  where domainName is the name of a Domain SubFolder and P Q R are integers which define the computation grid,
  T is the StopTime you want the simulation to use, and U is an integer specifying to upload the results or not.
- 
-  
+
+ From this directory, run:
+ ```
+ $ tclsh exec_test_suite.tcl LW 1 1 1 12 0
+ ```
+
 
 ## TO ADD A NEW DOMAIN
  
@@ -161,21 +94,84 @@ Where:
  if {[info exists RAPType]} {
    pfset Solver.Linear.Preconditioner.$Preconditioner.RAPType          $RAPType
  }
-```
-* add the following to the .gitignore:
-```
-<domainname>/**/solver_params.tcl
-```
+ ```
+ * add the following to the .gitignore:
+ ```
+ <domainname>/**/solver_params.tcl
+ ```
+
 
 ## To Add or Change Solver Configurations for a Domain
 
-Modify the list of solver configurations defined in the subdomain's test.tcl file. 
+ Modify the list of solver configurations defined in the subdomain's test.tcl file. 
 
-For example, clayl/tests.tcl
+ For example, clayl/tests.tcl
 
 
 ## To Delete Test Logs
 
-Use the purge_log_files.tcl script to remove log files for all subdomains.
+ Use the purge_log_files.tcl script to remove log files for all subdomains.
 
 
+## INCLUDED FILES
+
+ * solver_configs/caseXX/solver_params.tcl - Solver configuration to apply for this test
+ * collect_stats.tcl - script to collect stats from all the test cases in a domain
+ * purge_log_files.tcl - script to purge all the log files generated from a run
+ * exec_test_suite.tcl - wrapper script to run all tests in a domain from root of test directory
+ * run_test.tcl - script to run a single solver configuration for a test domain
+ * run_tests.tcl - wrapper script to run all tests for a domain from within domain directory
+ * README.md - this file
+ * pfbdiff.py - python script to compare output files for differences
+ * Domain SubFolders - Each problem domain is given its own folder
+ * Domain SubFolders/tests.tcl - Defines the set of solver configurations to use for this test domain
+ * Domain SubFolders/DomainName.tcl - adapted TCL script to use when testing
+ * Domain SubFolders/results.csv - the collected results from the
+ * Domain SubFolders/test_config.tcl - Domain specific information, where to find the test directory, runname, etc.
+ * Domain SubFolders/validate_results.tcl - Script to run any post test validations of output data
+
+
+## GETTING STARTED WITH DOCKER ON MAC
+ Install parflow_docker:
+ ```
+ git clone https://github.com/parflow/docker parflow_docker
+ ```
+
+ If on Mac - Install Docker:
+ ```
+ https://docs.docker.com/docker-for-mac/install/
+ ```
+
+ Clone the hydroframe/ParfloePerformanceTesting directory:
+ ```
+ git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
+ ```
+
+ ```cd``` into ```ParflowPerformanceTesting/benchmarks```
+
+ Build the docker image using the version of parflow you want (for latest you can just say ```:latest-x.x.x``` instead of ```:version-x.x.x```):
+ ```
+ docker build --tag <[meaningful_tag_name][:version-x.x.x]> .
+ ```
+
+ Here is an example of a meaningful tag name:
+ ```
+ parflow37:version-3.6.0
+ ```
+
+ To see if the installation was successful, run the test suite for LW on 1 core, for 12 time steps:
+ ```
+ docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 0
+ ```
+
+ For information on argument and option meanings from ```docker run...``` read [Running](#running)
+
+ Currently to upload results download ```connection_strings.zip```[NOTE: ADDRESS WHERE TO GET THIS OR IF THERE WILL BE A FIX TO THE UPLOAD] and paste ```upload_mongostring.txt``` anywhere under the benchmarks folder. Lastly, run:
+ ```
+ docker run -it --rm -v $(pwd):/data -e MONGO_CONNECTION='/data/pathtotxtfileunderbenchmarks/upload_mongostring.txt' <docker container name> exec_test_suite.tcl LW 1 1 1 12 1
+ ```
+
+ Where:
+ * ```data``` is ```/benchmarks```
+ * ```pathtotxtfileunderbenchmarks``` is the path from ```/data``` to ```upload_mongostring.txt```
+ * ```<docker container name>``` is the same as your previously created ```<[meaningful_tag_name][:version-x.x.x]>```
