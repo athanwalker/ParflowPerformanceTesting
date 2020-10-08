@@ -37,7 +37,9 @@
  $ tclsh exec_test_suite.tcl LW 1 1 1 12 0
  ```
 
-### INSTALLING/CONFIGURING PARFLOW FOR PARFLOWPERFORMANCETESTING
+ [NEXT LIST NECESSITIES FOR MINICONDA AND MONGODB]
+
+## Installing/Configuring Parflow For ParflowPerformanceTesting
  
  Verify environment variable **LD_LIBRARY_PATH** is set to a **v11 lib64** library.
 
@@ -54,11 +56,10 @@
  * ```-DPARFLOW_ENABLE_TIMING=TRUE```
  * ```-DCMAKE_BUILD_TYPE=Release```
  * ```-DHYPRE_ROOT=${HYPRE_DIR}```
+
  ```cmake``` **must** find the Hypre library.
 
  Details of **PARFLOW_DIR** in [Parflow](http://github.com/parflow/parflow).
-
- [NEXT LIST NECESSITIES FOR MINICONDA AND MONGODB]
 
 
 ## TO ADD A NEW DOMAIN
