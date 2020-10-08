@@ -3,7 +3,7 @@
 ## INDEX
  * [Overview](#overview)
  * [Quickstart](#quickstart)
- * [Installing/Configuring Parflow for ParflowPerformanceTesting](#installing/configuring-parflow-for-parflowperformancetesting)
+ * [Install and Configure Parflow for ParflowPerformanceTesting](#install-and-configure-parflow-for-parflowperformancetesting)
  * [To Add a New Domain](#to-add-a-new-domain)
  * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
  * [To Delete Test Logs](#to-delete-test-logs)
@@ -40,7 +40,7 @@
 
  [NEXT LIST NECESSITIES FOR MINICONDA AND MONGODB]
 
-## Installing/Configuring Parflow for ParflowPerformanceTesting
+## Install and Configure Parflow for ParflowPerformanceTesting
  
  Verify environment variable **LD_LIBRARY_PATH** is set to a **v11 lib64** library.
 
