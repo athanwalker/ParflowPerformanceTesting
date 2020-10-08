@@ -45,7 +45,7 @@
  Verify environment variable **LD_LIBRARY_PATH** is set to a **v11 lib64** library.
 
  Install Hypre by following Parflow's [Dockerfile instructions regarding Hypre](https://github.com/parflow/parflow/blob/master/Dockerfile).
- Create and environment variable **HYPRE_DIR** set to the **path** of the installed **hypre** directory which 
+ Create environment variable **HYPRE_DIR** set to the **path** of the installed **hypre** directory which 
  contains directories **include** and **lib**.
  
  Follow installation instructions from [Parflow](http://github.com/parflow/parflow).
@@ -154,6 +154,9 @@
  * Domain SubFolders/results.csv - the collected results from the
  * Domain SubFolders/test_config.tcl - Domain specific information, where to find the test directory, runname, etc.
  * Domain SubFolders/validate_results.tcl - Script to run any post test validations of output data
+
+					Testing
+				test1		test2
 
 
 ## GETTING STARTED WITH DOCKER ON MAC
