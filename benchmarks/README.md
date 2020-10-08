@@ -4,6 +4,7 @@
  * [Overview](#overview)
  * [Quickstart](#quickstart)
  * [Install and Configure Parflow for ParflowPerformanceTesting](#install-and-configure-parflow-for-parflowperformancetesting)
+ * [Upload Setup](#upload-setup)
  * [To Add a New Domain](#to-add-a-new-domain)
  * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
  * [To Delete Test Logs](#to-delete-test-logs)
@@ -62,6 +63,19 @@
 
  Details of **PARFLOW_DIR** in [Parflow](http://github.com/parflow/parflow).
 
+
+## Upload Setup
+
+ Obtain and unzip **connection_strings.zip** and set environment variable **MONGO_ENVIRONMENT** to the path 
+ leading directly too **upload_mongostring.txt** (file from connection_strings.zip).
+
+ Install [miniconda](https://docs.conda.io/en/latest/miniconda.html). Create a new virtual environment
+ ```conda create --name <name> python=<current version of python>``` then activate it:
+ * WINDOWS: ```activate <name>```
+ * LINUX, macOS: ```source activate <name>
+ While the environment is activated, install the necessary dependencies ```conda install pymongo pandas numpy dnspython```
+ For more information on using conda see [conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf). 
+ 
 
 ## TO ADD A NEW DOMAIN
  
@@ -167,6 +181,8 @@
                      |---exec_test_suite.tcl
                      |
                      |---solver_configs---caseXX---solver_params.tcl
+
+ [BELOW FILES/DESCRIPTIONS MAY BE OUT OF DATE???]
 
  * solver_configs/caseXX/solver_params.tcl - Solver configuration to apply for this test
  * collect_stats.tcl - script to collect stats from all the test cases in a domain
