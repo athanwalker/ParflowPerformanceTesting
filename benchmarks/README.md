@@ -37,6 +37,29 @@
  $ tclsh exec_test_suite.tcl LW 1 1 1 12 0
  ```
 
+### INSTALLING/CONFIGURING PARFLOW FOR PARFLOWPERFORMANCETESTING
+ 
+ Verify environment variable **LD_LIBRARY_PATH** is set to a **v11 lib64** library.
+
+ Install Hypre by following Parflow's [Dockerfile instructions regarding Hypre](https://github.com/parflow/parflow/blob/master/Dockerfile).
+ Create and environment variable **HYPRE_DIR** set to the **path** of the installed **hypre** directory which 
+ contains directories **include** and **lib**.
+ 
+ Follow installation instructions from [Parflow](http://github.com/parflow/parflow).
+
+ The ```cmake``` configuration of Parflow must at least contain the following arguments/options:
+ * ```-DCMAKE_INSTALL_PREFIX=${PARFLOW_DIR}```
+ * ```-DPARFLOW_HAVE_CLM=ON ```
+ * ```-DPARFLOW_AMPS_LAYER=mpi1```
+ * ```-DPARFLOW_ENABLE_TIMING=TRUE```
+ * ```-DCMAKE_BUILD_TYPE=Release```
+ * ```-DHYPRE_ROOT=${HYPRE_DIR}```
+ ```cmake``` **must** find the Hypre library.
+
+ Details of **PARFLOW_DIR** in [Parflow](http://github.com/parflow/parflow).
+
+ [NEXT LIST NECESSITIES FOR MINICONDA AND MONGODB]
+
 
 ## TO ADD A NEW DOMAIN
  
@@ -137,12 +160,12 @@
  git clone https://github.com/parflow/docker parflow_docker
  ```
 
- If on Mac - Install Docker:
+ Install Docker:
  ```
- https://docs.docker.com/docker-for-mac/install/
+ https://docs.docker.com/docker-for-mac/install
  ```
 
- Clone the hydroframe/ParfloePerformanceTesting directory:
+ Clone this hydroframe/ParflowPerformanceTesting directory:
  ```
  git clone https://github.com/hydroframe/ParflowPerformanceTesting.git
  ```
@@ -164,7 +187,7 @@
  docker run -it --rm -v $(pwd):/data <[meaningful_tag_name][:version-x.x.x]> exec_test_suite.tcl LW 1 1 1 12 0
  ```
 
- For information on argument and option meanings from ```docker run...``` read [Running](#running)
+ For information on argument and option meanings from ```docker run...``` read [Quickstart](#quickstart)
 
  Currently to upload results download ```connection_strings.zip```[NOTE: ADDRESS WHERE TO GET THIS OR IF THERE WILL BE A FIX TO THE UPLOAD] and paste ```upload_mongostring.txt``` anywhere under the benchmarks folder. Lastly, run:
  ```
