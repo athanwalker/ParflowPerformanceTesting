@@ -3,7 +3,7 @@
 ## INDEX
  * [Overview](#overview)
  * [Quickstart](#quickstart)
- * [Installing/Configuring Parflow for ParflowPerformanceTesting](#Installing/Configuring-Parflow-for-ParflowPerformanceTesting)
+ * [Installing/Configuring Parflow for ParflowPerformanceTesting](#installing/configuring-parflow-for-parflowperformancetesting)
  * [To Add a New Domain](#to-add-a-new-domain)
  * [To Add or Change Solver Configurations for a Domain](#to-add-or-change-solver-configurations-for-a-domain)
  * [To Delete Test Logs](#to-delete-test-logs)
