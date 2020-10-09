@@ -70,11 +70,12 @@
  leading directly too **upload_mongostring.txt** (file from connection_strings.zip).
 
  Install [miniconda](https://docs.conda.io/en/latest/miniconda.html). Create a new virtual environment
- ```conda create --name <name> python=<current version of python>``` then activate it:
+ ```conda create --name <name> python=<version of python>``` then activate it:
  * WINDOWS: ```activate <name>```
- * LINUX, macOS: ```source activate <name>
+ * LINUX, macOS: ```source activate <name>```
+
  While the environment is activated, install the necessary dependencies ```conda install pymongo pandas numpy dnspython```
- For more information on using conda see [conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf). 
+ For more information on conda commands see [conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf). 
  
 
 ## TO ADD A NEW DOMAIN
