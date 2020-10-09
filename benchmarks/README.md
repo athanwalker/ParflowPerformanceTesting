@@ -78,7 +78,7 @@
  
  For more information on conda commands see [conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf). 
 
- [NOTE WHEN SETTING UP <VERSION OF PYTHON> NEEDS TO BE 3.7.6 OTHERWISE UPLOAD FAILS]
+ [NOTE WHEN SETTING UP ```<version of python>``` NEEDS TO BE 3.7.6 OTHERWISE UPLOAD FAILS]
  
 
 ## TO ADD A NEW DOMAIN
